@@ -62,22 +62,22 @@
 
 
 ############### Multiple inheritance #####################
-class father:
-    def car(self):
-        print("Father has a car")
+# class father:
+#     def car(self):
+#         print("Father has a car")
 
-class mother:
-    def house(self):
-        print("Mother has a house")
+# class mother:
+#     def house(self):
+#         print("Mother has a house")
 
-class son(father, mother):
-    def bike(self):
-        print("Son has a bike")
+# class son(father, mother):
+#     def bike(self):
+#         print("Son has a bike")
 
-s = son()
-s.car()
-s.house()
-s.bike()
+# s = son()
+# s.car()
+# s.house()
+# s.bike()
 
 ################ hierarchical inheritance #####################
 # class father:
@@ -96,4 +96,118 @@ s.bike()
 # s.father_property()
 # s.mother_property()
 
+###################### polymorphism ###############
+# class car:
+#     def move(self):
+#         print("Car is moving")
+# class boat:
+#     def move(self):
+#         print("Boat is sailing")
+# class aeroplane:
+#     def move(self):
+#         print("Aeroplane is flying")
+# vehicles = [car(), boat(), aeroplane()]
+# for vehicle in vehicles:
+#     vehicle.move()
+
+#################### abstract class #####################
+# from abc import ABC, abstractmethod
+
+# class Vehicle(ABC):
+#     @abstractmethod
+#     def start(self):
+#         pass
+
+# class Car(Vehicle):
+#     def start(self):
+#         print("Car is starting")
+
+# class Bike(Vehicle):
+#     def start(self):
+#         print("Bike is starting")
+# car = Car()
+# car.start() 
+# bike = Bike()
+# bike.start()
+
+
+from abc import ABC, abstractmethod
+class Animal:
+    @abstractmethod
+    def sound(self):
+        pass
+class Dog():
+    def sound(self):
+        print("Dog barks")  
+class Cat():
+    def sound(self):
+        print("Cat meows")
+class Cow():
+    def sound(self):
+        print("Cow moos")
+class Lion():
+    def sound(self):
+        print("Lion roars")
+dog = Dog()
+dog.sound() 
+cat =Cat()
+cat.sound() 
+cow = Cow()
+cow.sound() 
+lion = Lion()
+lion.sound()
+
+#################### encapsulation #####################
+class Student:
+    def __init__(self, name, marks):
+        self.name = name
+        self.marks = marks
+    def get_marks(self):
+        return self.marks
+    def set_marks(self, marks):
+        if marks >= 0 and marks <= 100:
+            self.marks = marks
+        else:
+            print("Invalid marks. Please enter a value between 0 and 100.")
+    def display(self):
+        print("Name:", self.name)
+        print("Marks:", self.marks) 
+student1 = Student("Rani", 20)
+student1.set_marks(85)
+student1.display()
+
+################## miniproject #################
+from abc import ABC, abstractmethod
+
+class Employee(ABC):
+    def __init__(self,name,salary):
+        self.name = name
+        ## Encapsulation
+        self.__salary = salary
+    def get_salary(self):
+        return self.__salary
+    @abstractmethod
+    def calculate_salary(self):
+        pass
+    def display(self):
+        print("Name:",self.name)
+        print("Salary:",self.calculate_salary())
+#inheritance
+class Developer(Employee):
+    def calculate_salary(self):
+        #developer gets 10% bonus
+        bonus = self.get_salary() * 0.1
+        return self.get_salary() + bonus
+class Manager(Employee):
+    def calculate_salary(self):
+        #manager gets 20% bonus
+        bonus = self.get_salary() * 0.2
+        return self.get_salary() + bonus
+#objects
+developer = Developer("Rani", 50000)
+manager = Manager("Ananya", 60000)
+#Polymorphism
+developer.display()
+print()
+manager.display()
 
