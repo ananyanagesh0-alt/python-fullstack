@@ -1,134 +1,134 @@
-# class student:
-#     def __init__(self,name,age):
-#         self.name = name
-#         self.age = age
+class student:
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
 
-#     def display(self):
-#         print("Name:",self.name)
-#         print("Age:",self.age)      
+    def display(self):
+        print("Name:",self.name)
+        print("Age:",self.age)      
 
-# s1=student("Rani",20)
-# s1.display()
+s1=student("Rani",20)
+s1.display()
 
-# class employee:
-#     def __init__(self,name,age,salary,department):
-#         self.name=name
-#         self.age=age
-#         self.salary=salary
-#         self.department=department
+class employee:
+    def __init__(self,name,age,salary,department):
+        self.name=name
+        self.age=age
+        self.salary=salary
+        self.department=department
 
-#     def display(self):
-#         print("Name:",self.name)
-#         print("Age:",self.age)
-#         print("Salary:",self.salary)
-#         print("Department:",self.department)
-
-
-# e1 = employee("John",30,50000,"IT")
-# e2 = employee("Alice",28,60000,"HR")
-# e1.display()
-# print()
-# e2.display()
-
-############# single inheritance ####################
-# class Animal:
-#     def eat(self):
-#         print("Animal is Eating")
+    def display(self):
+        print("Name:",self.name)
+        print("Age:",self.age)
+        print("Salary:",self.salary)
+        print("Department:",self.department)
 
 
-# class Dog(Animal):
-#     def bark(self):
-#         print("Dog is Barking")
+e1 = employee("John",30,50000,"IT")
+e2 = employee("Alice",28,60000,"HR")
+e1.display()
+print()
+e2.display()
 
-# d = Dog()
-# d.eat()
-# d.bark()
-
-############### Multi-level ###############
-# class grandfather:
-#     def house(self):
-#         print("Grandfather has a house")
-# class father(grandfather):
-#     def car(self):
-#         print("father has a car")
-# class son(father):
-#     def bike(self):
-#         print("Son has a bike")
-# s= son()
-# s.house()
-# s.car()
-# s.bike()
+############ single inheritance ####################
+class Animal:
+    def eat(self):
+        print("Animal is Eating")
 
 
+class Dog(Animal):
+    def bark(self):
+        print("Dog is Barking")
 
-############### Multiple inheritance #####################
-# class father:
-#     def car(self):
-#         print("Father has a car")
+d = Dog()
+d.eat()
+d.bark()
 
-# class mother:
-#     def house(self):
-#         print("Mother has a house")
+############## Multi-level ###############
+class grandfather:
+    def house(self):
+        print("Grandfather has a house")
+class father(grandfather):
+    def car(self):
+        print("father has a car")
+class son(father):
+    def bike(self):
+        print("Son has a bike")
+s= son()
+s.house()
+s.car()
+s.bike()
 
-# class son(father, mother):
-#     def bike(self):
-#         print("Son has a bike")
 
-# s = son()
-# s.car()
-# s.house()
-# s.bike()
 
-################ hierarchical inheritance #####################
-# class father:
-#     def father_property(self):
-#         print("Father has a property")
+############## Multiple inheritance #####################
+class father:
+    def car(self):
+        print("Father has a car")
 
-# class son(father):
-#     def mother_property(self):
-#         print("mother has a property")
+class mother:
+    def house(self):
+        print("Mother has a house")
 
-# class daugther(father):
-#     def son_property(self):
-#         print("son has a property")
+class son(father, mother):
+    def bike(self):
+        print("Son has a bike")
 
-# s=son()
-# s.father_property()
-# s.mother_property()
+s = son()
+s.car()
+s.house()
+s.bike()
 
-###################### polymorphism ###############
-# class car:
-#     def move(self):
-#         print("Car is moving")
-# class boat:
-#     def move(self):
-#         print("Boat is sailing")
-# class aeroplane:
-#     def move(self):
-#         print("Aeroplane is flying")
-# vehicles = [car(), boat(), aeroplane()]
-# for vehicle in vehicles:
-#     vehicle.move()
+############### hierarchical inheritance #####################
+class father:
+    def father_property(self):
+        print("Father has a property")
 
-#################### abstract class #####################
-# from abc import ABC, abstractmethod
+class son(father):
+    def mother_property(self):
+        print("mother has a property")
 
-# class Vehicle(ABC):
-#     @abstractmethod
-#     def start(self):
-#         pass
+class daugther(father):
+    def son_property(self):
+        print("son has a property")
 
-# class Car(Vehicle):
-#     def start(self):
-#         print("Car is starting")
+s=son()
+s.father_property()
+s.mother_property()
 
-# class Bike(Vehicle):
-#     def start(self):
-#         print("Bike is starting")
-# car = Car()
-# car.start() 
-# bike = Bike()
-# bike.start()
+##################### polymorphism ###############
+class car:
+    def move(self):
+        print("Car is moving")
+class boat:
+    def move(self):
+        print("Boat is sailing")
+class aeroplane:
+    def move(self):
+        print("Aeroplane is flying")
+vehicles = [car(), boat(), aeroplane()]
+for vehicle in vehicles:
+    vehicle.move()
+
+################### abstract class #####################
+from abc import ABC, abstractmethod
+
+class Vehicle(ABC):
+    @abstractmethod
+    def start(self):
+        pass
+
+class Car(Vehicle):
+    def start(self):
+        print("Car is starting")
+
+class Bike(Vehicle):
+    def start(self):
+        print("Bike is starting")
+car = Car()
+car.start() 
+bike = Bike()
+bike.start()
 
 
 from abc import ABC, abstractmethod
